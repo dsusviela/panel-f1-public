@@ -73,8 +73,9 @@ app/controllers/concerns
 app/controllers/application_controller.rb
 app/controllers/user.rb
 app/mailers
+app/jobs
 lib
 log
 storage
 vendor
-README.md
+
