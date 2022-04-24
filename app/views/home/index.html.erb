@@ -1,0 +1,18 @@
+<div class="site-header">
+  <div class="site-header--title">
+    <h1>Tabla de posiciones de la penca</h1>
+  </div>
+  <div class="site-header--decorator"></div>
+</div>
+
+<div class="prediction-leaderboard">
+  <% @ordered_scores.each_with_index do |score, index| %>
+    <%= render(partial: 'prediction_leaderboard_item',
+        locals: {
+          content_id: "leaderboard-#{index}",
+          position: index + 1,
+          score: score
+    })%>
+  <% end %>
+</div>
+<%= javascript_pack_tag 'prediction_leaderboard' %>

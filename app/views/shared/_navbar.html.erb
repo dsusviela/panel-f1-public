@@ -1,0 +1,15 @@
+<div id="navbar">
+  <div class="navbar--logos">
+    <%= image_tag("logos/formula-1-without-name.png", class: "f1-logo") %>
+    <%= link_to "EL PANEL DE LA F1", root_url %>
+  </div>
+  <div class="navbar--links">
+    <%= link_to "Mi Penca", predictions_url %>
+    <% if current_user.nil? %>
+      <%= link_to "Login", new_user_session_url %>
+      <%= link_to "Registro", new_user_registration_url %>
+    <% else %>
+      <%= link_to "Cerrar Sesion", destroy_user_session_url, method: :delete %>
+    <% end %>
+  </div>
+</div>

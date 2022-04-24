@@ -1,0 +1,20 @@
+<div class="login-signup">
+  <h2 class="login-signup--title">Inicia sesión en el panel de la Fórmula 1</h2>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+
+    <%= f.label :password, "Contraseña" %>
+    <%= f.password_field :password, autocomplete: "current-password" %>
+
+    <% if devise_mapping.rememberable? %>
+      <%= f.label :remember_me, "Mantener sesión iniciada" %>
+      <%= f.check_box :remember_me %>
+    <% end %>
+
+    <div class="new-user--actions">
+      <%= f.submit "Log in", class: "new-user--button" %>
+    </div>
+  <% end %>
+</div>

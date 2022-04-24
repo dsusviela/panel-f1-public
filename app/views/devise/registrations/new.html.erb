@@ -1,0 +1,31 @@
+<div class="login-signup">
+  <%= render "devise/shared/error_messages", resource: resource %>
+  <h2 class="login-signup--title">Bienvenido al panel de la Fórmula 1</h2>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+
+      <%= f.label :nickname %>
+      <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
+
+      <%= f.label :pais %>
+      <%= f.collection_select :country_id, Country.all, :id, :name, include_blank: false %>
+
+      <% personalities = Team.all.order(:name).map { |team| ["Team:#{team.id}", team.name] } %>
+      <% personalities += Driver.all.order(:name).map { |team| ["Driver:#{team.id}", team.name] } %>
+      <%= f.label :personalidad_favorita %>
+      <%= f.collection_select :favorite_f1_entity_id, personalities, :first, :second, include_blank: true %>
+
+      <%= f.label :password, "Contraseña (mín 6 caracteres)" %>
+      <%= f.password_field :password, autocomplete: "new-password" %>
+
+      <%= f.label :password_confirmation, "Confirmar contraseña" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+
+    <div class="new-user--actions">
+      <%= f.submit "Registrate!", class: "new-user--button" %>
+    </div>
+  <% end %>
+</div>
+

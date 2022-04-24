@@ -1,0 +1,23 @@
+.new_user {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 2fr;
+  width: 700px;
+}
+
+.new-user--actions {
+  display: flex;
+  justify-content: center;
+  grid-column: span 2;
+}
+
+.new-user--button {
+  background-color: #db2e20;
+  font-size: 20px;
+  color: white;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: white;
+  padding: 5px;
+  font-family: 'Verdana';
+}

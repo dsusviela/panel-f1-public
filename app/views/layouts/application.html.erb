@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PanelF1</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com'%>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render "shared/navbar" %>
+    <% unless notice.blank? %>
+      <div class="notification__notice">
+        <p class="notice"><%= notice %></p>
+      </div>
+    <% end %>
+
+    <% unless alert.blank? %>
+      <div class="notification__alert">
+        <p class="alert"><%= alert %></p>
+      </div>
+    <% end %>
+
+    <%= yield %>
+  </body>
+</html>

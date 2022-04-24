@@ -1,0 +1,18 @@
+<%=
+  personality = score.user.favorite_f1_entity
+  player_color = if personality.is_a?(Team)
+    PredictionsHelper.serialize_team_name_for_color(personality)
+  else
+    PredictionsHelper.serialize_team_name_for_color(personality.team)
+  end
+  hidden_field_tag "leaderboard_item_#{content_id}",
+    {
+      position: position,
+      nickname: score.user.nickname,
+      country: score.user.country,
+      color: player_color,
+      team: personality.name,
+      score: score.score_sum,
+      country: score.user.country.iso
+    }.to_json
+%>

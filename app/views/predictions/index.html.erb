@@ -1,0 +1,148 @@
+<div class="site-header">
+  <div class="site-header--title">
+    <h1>Mi Penca</h1>
+  </div>
+  <div class="site-header--decorator"></div>
+</div>
+
+<div class="site-body">
+  <div class="prediction-body">
+    <div class="driver-template-prediction">
+      <div class="driver-template-prediction--title">
+        <div class="driver-template-prediction--title__placeholder">
+          Pasada:
+        </div>
+
+        <% if @latest_prediction %>
+          <div class="driver-template-prediction--title__grand-prix">
+            <%= @latest_prediction.round.grandprix_name %>
+          </div>
+        <% else %>
+          <div class="driver-template-prediction--title__grand-prix">
+            No realizaste una prediccion!
+          </div>
+        <% end %>
+      </div>
+
+      <div class="driver-template-prediction--body">
+        <% if @latest_prediction %>
+          <div class="drivers-prediction">
+            <% @latest_prediction.drivers[:top_five].each_with_index do |driver, index| %>
+              <%= render(partial: 'driver_item',
+                locals: {
+                  content_id: "leaderboard-#{index}",
+                  position: index + 1,
+                  driver: driver,
+                  state: "ontrack"
+              })%>
+            <% end %>
+
+            <%= render(partial: 'driver_item',
+              locals: {
+                content_id: "leaderboard-dnf",
+                position: "DNF",
+                driver: @latest_prediction.drivers[:dnf],
+                state: "eliminated"
+            })%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="driver-template-prediction">
+      <div class="driver-template-prediction--title">
+        <div class="driver-template-prediction--title__placeholder">
+          Resultado:
+        </div>
+
+        <% if @latest_results_data %>
+          <div class="driver-template-prediction--title__grand-prix">
+            <%= @latest_results_data[:round].grandprix_name %>
+          </div>
+        <% else %>
+          <div class="driver-template-prediction--title__grand-prix">
+            No tienes una prediccion hecha!
+          </div>
+        <% end %>
+      </div>
+
+      <div class="driver-template-prediction--body">
+        <% if @latest_results_data %>
+          <div class="drivers-prediction--results">
+            <% @latest_results_data[:top_five].each_with_index do |driver, index| %>
+              <%= render(partial: 'driver_item',
+                locals: {
+                  content_id: "leaderboard-#{index}",
+                  position: index + 1,
+                  driver: driver,
+                  state: "ontrack"
+              })%>
+            <% end %>
+
+            <% @latest_results_data[:dnf].each_with_index do |driver, index| %>
+              <%= render(partial: 'driver_item',
+                locals: {
+                  content_id: "leaderboard-dnf",
+                  position: "DNF",
+                  driver: driver,
+                  state: "eliminated"
+              })%>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="driver-template-prediction">
+      <div class="driver-template-prediction--title">
+        <div class="driver-template-prediction--title__placeholder">
+          Próxima:
+        </div>
+
+        <% if @next_round_prediction %>
+          <div class="driver-template-prediction--title__grand-prix">
+            <%= @next_round_prediction.round.grandprix_name %>
+          </div>
+        <% else %>
+          <div class="driver-template-prediction--title__grand-prix">
+            No tienes una prediccion hecha!
+          </div>
+        <% end %>
+      </div>
+
+      <div class="driver-template-prediction--body">
+        <% if @next_round_prediction %>
+          <div class="drivers-prediction--next-prediction">
+            <% @next_round_prediction.drivers[:top_five].each_with_index do |driver, index| %>
+              <%= render(partial: 'driver_item',
+                locals: {
+                  content_id: "leaderboard-#{index}",
+                  position: index + 1,
+                  driver: driver,
+                  state: "ontrack"
+              })%>
+            <% end %>
+
+            <%= render(partial: 'driver_item',
+              locals: {
+                content_id: "leaderboard-dnf",
+                position: "DNF",
+                driver: @next_round_prediction.drivers[:dnf],
+                state: "eliminated"
+            })%>
+
+          </div>
+          <br />
+          <%# <%= button_tag "Editar predicción", class: "prediction-redirect--button" %>
+        <% else %>
+          <br />
+          <%= link_to "Crear Predicción", new_prediction_path, class: "prediction-redirect--button" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= javascript_pack_tag 'driver_prediction' %>
+<%= javascript_pack_tag 'driver_prediction--result' %>
+<%= javascript_pack_tag 'driver_prediction--next-prediction' %>

@@ -1,0 +1,9 @@
+  <input type="hidden" id="<%= button_id %>-value" name="<%= name %>" value="<%= drivers.first.id %>">
+  <button id="<%= button_id %>" type="button" class="prediction-form--driver-dropdown">
+    <%= drivers.first.name %>
+  </button>
+  <div id="<%=content_id%>" class="prediction-form--drivers">
+    <% drivers.each do |driver| %>
+      <div value="<%= driver.id %>" class="prediction-form--dropdown-option"><%= driver.name %></div>
+    <% end %>
+  </div>

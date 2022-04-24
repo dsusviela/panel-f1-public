@@ -1,0 +1,12 @@
+<%=
+  hidden_field_tag "leaderboard_item_#{content_id}",
+    {
+      position: position,
+      nickname: driver.name,
+      country: driver.country.iso,
+      color: PredictionsHelper.serialize_team_name_for_color(driver.team),
+      team: driver.team.name,
+      score: driver.number,
+      state: state
+    }.to_json
+%>

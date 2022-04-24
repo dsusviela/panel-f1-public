@@ -1,0 +1,25 @@
+.notice {
+  font-family: 'Verdana';
+}
+
+.alert {
+  font-family: 'Verdana';
+}
+
+.notification__notice {
+  width: 100%;
+  background-color: yellowgreen;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notification__alert {
+  width: 100%;
+  background-color: #db2e20;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

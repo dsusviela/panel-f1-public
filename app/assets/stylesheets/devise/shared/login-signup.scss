@@ -1,0 +1,26 @@
+.login-signup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #38383e;
+  height: 400px;
+}
+
+.login-signup--title {
+  font-family: 'Verdana';
+  color: #38383e;
+}
+
+.login-signup label {
+  color: #38383e;
+  font-size: 14px;
+  font-family: 'Verdana';
+}
+
+#error_explanation {
+  border: 2px solid #db2e20;
+  padding: 15px;
+  border-radius: 15px;
+  font-family: 'Verdana';
+}

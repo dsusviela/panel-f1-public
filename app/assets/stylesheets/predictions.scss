@@ -1,0 +1,143 @@
+// Place all the styles related to the Predictions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.prediction-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.prediction-form--field {
+  width: 500px;
+  height: 100px;
+}
+
+.prediction-form--input {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  width: 300px;
+  flex-wrap: wrap;
+}
+
+.prediction-form--label {
+  font-size: 1.5rem;
+}
+
+.prediction-form--select {
+  width: 100%;
+  padding-left: 5px;
+  border: 1px solid #CCC;
+  color: #f2f2f2;
+  background-color: #1f1f26;
+  height: 70%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 2rem;
+  margin-top: 5px;
+}
+
+.prediction-form--circuit-dropdown {
+  background-color: white;
+  color: #1f1f26;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 2rem;
+  border-style: solid;
+  border-color: white;
+  padding: 10px;
+  padding-top: 30px;
+  border-bottom: 1px solid #db2e20;
+}
+
+.prediction-form--driver-dropdown {
+  background-color: white;
+  color: #1f1f26;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 1.2rem;
+  border-style: solid;
+  border-color: white;
+  padding: 10px;
+  border-bottom: 1px solid #db2e20;
+}
+
+.prediction-form--dropdown-option {
+  color: #f2f2f2;
+  background-color: #1f1f26;
+  font-size: 1.5rem;
+  font-family: 'Titillium Web', sans-serif;
+  padding: 20px;
+}
+
+.prediction-form--drivers {
+  display: none;
+  margin-top: 20px;
+  overflow: auto;
+  height: 400px;
+}
+
+.prediction-form--circuits {
+  display: none;
+  margin-top: 20px;
+  overflow: auto;
+  height: 400px;
+}
+
+.prediction-form--dropdown-option:hover {
+  background-color: #db2e20;
+}
+
+.prediction-form--button {
+  background-color: #db2e20;
+  font-size: 20px;
+  color: white;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: white;
+  padding: 5px;
+  font-family: 'Verdana';
+}
+
+.prediction-body {
+  display: flex;
+  flex-direction: row;
+}
+
+.driver-template-prediction {
+  width: 100%;
+}
+
+.driver-template-prediction--title {
+  display: flex;
+  flex-direction: row;
+  width: 475px;
+}
+
+.driver-template-prediction--title__placeholder {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.driver-template-prediction--title__grand-prix {
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.driver-template-prediction--body {
+  padding-top: 15px;
+}
+
+.prediction-redirect--button {
+  background-color: #db2e20;
+  font-size: 20px;
+  color: white;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: white;
+  padding: 5px;
+  font-family: 'Verdana';
+}

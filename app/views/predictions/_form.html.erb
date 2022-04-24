@@ -1,0 +1,95 @@
+<%= javascript_pack_tag 'prediction_dropdown' %>
+
+<%= form_with(model: prediction, local: true, class: "prediction-form") do |form| %>
+  <% if prediction.errors.any? %>
+    <div id="error_explanation">
+      <h2>Hubieron <%= pluralize(prediction.errors.count, "error") %> errores:</h2>
+
+      <ul>
+        <% prediction.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <input type="hidden" id="circuit-dropdown-toggle-value" name="prediction[round_id]" value="<%=@rounds.first.id %>">
+  <button id="circuit-dropdown-toggle" type="button" class="prediction-form--circuit-dropdown">
+    <%=@rounds.first.grandprix_name %>
+  </button>
+  <div id="circuit-dropdown-content" class="prediction-form--circuits">
+    <% @rounds.each do |round| %>
+      <div value="<%=round.id%>" class="prediction-form--dropdown-option"><%=round.grandprix_name%></div>
+    <% end %>
+  </div>
+
+  <div class="prediction-form--input">
+    <%= form.label :first_id, "1.", class: "prediction-form--label" %>
+    <%= render(partial: 'predictions_dropdown',
+              locals: {
+                drivers: @drivers,
+                button_id: "first-driver-dropdown-toggle",
+                content_id: "first-driver-dropdown-content",
+                name: :first_id
+              })%>
+  </div>
+
+  <div class="prediction-form--input">
+    <%= form.label :second_id, "2.", class: "prediction-form--label" %>
+    <%= render(partial: 'predictions_dropdown',
+              locals: {
+                drivers: @drivers,
+                button_id: "second-driver-dropdown-toggle",
+                content_id: "second-driver-dropdown-content",
+                name: :second_id
+              })%>
+  </div>
+
+  <div class="prediction-form--input">
+    <%= form.label :third_id, "3.", class: "prediction-form--label" %>
+    <%= render(partial: 'predictions_dropdown',
+               locals: {
+                 drivers: @drivers,
+                 button_id: "third-driver-dropdown-toggle",
+                 content_id: "third-driver-dropdown-content",
+                 name: :third_id
+              })%>
+  </div>
+
+  <div class="prediction-form--input">
+    <%= form.label :fourth_id, "4.", class: "prediction-form--label" %>
+    <%= render(partial: 'predictions_dropdown',
+              locals: {
+                drivers: @drivers,
+                button_id: "fourth-driver-dropdown-toggle",
+                content_id: "fourth-driver-dropdown-content",
+                name: :fourth_id
+              })%>
+  </div>
+
+  <div class="prediction-form--input">
+    <%= form.label :fifth_id, "5.", class: "prediction-form--label" %>
+    <%= render(partial: 'predictions_dropdown',
+              locals: {
+                drivers: @drivers,
+                button_id: "fifth-driver-dropdown-toggle",
+                content_id: "fifth-driver-dropdown-content",
+                name: :fifth_id
+              })%>
+  </div>
+
+  <div class="prediction-form--input">
+    <%= form.label :dnf_id, "DNF", class: "prediction-form--label" %>
+    <%= render(partial: 'predictions_dropdown',
+              locals: {
+                drivers: @drivers,
+                button_id: "dnf-driver-dropdown-toggle",
+                content_id: "dnf-driver-dropdown-content",
+                name: :dnf_id
+              })%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Crear Predicción", class: "prediction-form--button" %>
+  </div>
+<% end %>
